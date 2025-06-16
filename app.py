@@ -16,14 +16,14 @@ label_encoder = joblib.load("crop_label_encoder.pkl")
 
 # Streamlit app layout
 st.title("🌾 Crop Yield Predictor")
-st.markdown("Enter the crop details below to estimate the crop yield (hg/ha).")
+st.markdown("Enter the crop details below to estimate the crop yield in hectogram per hectare.")
 
 # User inputs
 with st.form(key='yield_form'):
     crop_name = st.selectbox("Crop Type", label_encoder.classes_)
-    year = st.slider("Year", min_value=1990, max_value=2030, value=2010)
+    year = st.slider("Year", min_value=2000, max_value=2050, value=2010)
     pesticides = st.number_input("Pesticide Usage (tonnes)", min_value=0.0, value=35000.0)
-    avg_temp = st.slider("Average Temperature (°C)", min_value=10.0, max_value=30.0, value=18.5)
+    avg_temp = st.slider("Average Temperature (°C)", min_value=0.0, max_value=45.0, value=18.5)
     submit_button = st.form_submit_button(label='Predict Yield')
 
 # Prediction logic
