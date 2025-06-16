@@ -34,4 +34,4 @@ if submit_button:
         predicted_yield = model.predict(input_data)[0]
         st.success(f"✅ Predicted Yield for {crop_name} in {year}: {predicted_yield:.2f} hg/ha")
     except Exception as e:
-        st.error(f\"Error: {str(e)}\")
+        st.error(f"Error: {str(e)}")
